@@ -4,14 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/normaliser.css">
   <link rel="stylesheet" href="/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap'); </style>
+
   <title>Tip Calculator App</title>
 </head>
 <body>
   <main class="main">
-    <h1 class="main-heading">
+    <div class="logo-container">
+      <img src="/img/logo.svg" alt="spliter logo" class="logo-img">
+    </div>
 
-    </h1>
+    <div class="calculator-container">
+      <div class="bill-container">
+        <h1 class="bill-title">Bill</h1>
+        <span class="dollar-sign"><img src="/img/icon-dollar.svg" alt="currency symbol" class="dollar-img"></span>
+        <input type="text" class="bill-input">
+      </div>
+
+      <div class="tip-container">
+        <h1 class="tip-title">Select Tip %</h1>
+        <div class="btn-container">
+          <button type="button" class="tip-btn">5%</button>
+          <button type="button" class="tip-btn">10%</button>
+          <button type="button" class="tip-btn">15%</button>
+          <button type="button" class="tip-btn">25%</button>
+          <button type="button" class="tip-btn">50%</button>
+          <input type="text" class="tip-btn custom" placeholder="Custom">
+        </div>
+      </div>
+    </div>
   </main>
   
 </body>
