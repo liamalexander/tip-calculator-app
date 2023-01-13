@@ -130,6 +130,7 @@ body {
   text-align: right;
   outline: none;
   cursor: text;
+  padding-right: 1.5rem;
 }
 
 ::placeholder {
@@ -219,4 +220,26 @@ body {
   color: var(--color-btns);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 480px) {
+  body {
+    background-color: var(--color-logo-background);
+  }
+  .calculator-container {
+    width: 70%;
+    margin: auto;
+    height: 85vh;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .payment-container {
+    width: 80%;
+  }
+
+  .dollar-sign,
+  .person-sign {
+    left: 6rem;
+  }
 }
