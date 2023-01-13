@@ -31,22 +31,26 @@ body {
   border-top-right-radius: 20px;
 }
 
-.bill-container {
+.bill-container,
+.people-container {
   position: relative;
   margin-bottom: 6rem;
 }
 
-.bill-title {
+.bill-title,
+.people-title {
   padding: 2rem 3.5rem 0.3rem 3.5rem;
 }
 
 .bill-title,
-.tip-title {
+.tip-title,
+.people-title {
   font-size: 1.4rem;
   color: var(--color-text);
 }
 
-.bill-input {
+.bill-input,
+.people-input {
   /* margin-left: 3rem; */
   width: 80%;
   height: 4rem;
@@ -64,11 +68,13 @@ body {
   padding: 0 1.5rem 0;
 }
 
-.bill-input:focus {
+.bill-input:focus,
+.people-input:focus {
   outline: 0;
 }
 
-.dollar-sign {
+.dollar-sign,
+.person-sign {
   position: absolute;
   left: 5rem;
   top: 5.5rem;
@@ -109,6 +115,11 @@ body {
   letter-spacing: 0.2rem;
 }
 
+.tip-btn:hover {
+  background-color: var(--color-selected);
+  color: var(--color-btns);
+}
+
 .btn-container > .tip-btn {
   flex: 40%;
 }
@@ -118,6 +129,7 @@ body {
   background-color: var(--color-input-background);
   text-align: right;
   outline: none;
+  cursor: text;
 }
 
 ::placeholder {
@@ -134,4 +146,77 @@ body {
 
 ::-ms-input-placeholder {
  color: var(--color-text);
+}
+
+.payment-container {
+  width: 82%;
+  margin: 2rem auto;
+  background-color: var(--color-btns);
+  border-radius: 10px;
+}
+
+.payment-text-tip:first-of-type {
+  /* container of line one */
+  padding-top: 3rem;
+}
+
+.payment-text-tip:last-of-type {
+  padding-bottom: 1rem;
+}
+
+.payment-text-tip {
+  display: table;
+  width: 90%;
+}
+
+.big-payment-title {
+  /* span */
+  display: table-cell;
+}
+
+.amount-to-pay {
+  /* span of pay amount  */
+  display: table-cell;
+  text-align: right;
+  vertical-align: top;
+}
+
+.big-tip-amount {
+  /* h1 tip amount */
+  font-size: 1.2rem;
+  color: var(--color-white);
+  /* padding: 3rem 2rem 0 2rem; */
+  padding: 0 2rem 0 2rem;
+}
+
+.small-tip-amount {
+  /* h2 tip amount  */
+  font-size: 1rem;
+  color: var(--color-text-2);
+  padding: 0 2rem 2rem 2rem;
+}
+
+
+.tip-total-to-pay {
+  /* p of total to pay  */
+  color: var(--color-selected);
+  font-size: 2.5rem;
+}
+
+.reset-btn-container {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.reset-btn {
+  text-transform: uppercase;
+  background-color: var(--color-selected);
+  border: none;
+  padding: 1rem 2rem;
+  width: 85%;
+  border-radius: 5px;
+  font-family: inherit;
+  color: var(--color-btns);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
