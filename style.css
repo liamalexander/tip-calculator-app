@@ -116,14 +116,11 @@ body {
   letter-spacing: 0.2rem;
 }
 
-.tip-btn:hover:not(:last-child) {
+.tip-btn:hover:not(:last-child),
+.tip-btn:focus:not(:last-child) {
   background-color: var(--color-logo-background);
   color: var(--color-btns);
 }
-/* 
-.tip-btn:active {
-  background-color: var(--color-logo-background);
-} */
 
 .btn-container > .tip-btn {
   flex: 40%;
