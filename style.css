@@ -69,8 +69,9 @@ body {
 }
 
 .bill-input:focus,
-.people-input:focus {
-  outline: 0;
+.people-input:focus,
+.custom:focus {
+  outline: 2.2px solid var(--color-selected);
 }
 
 .dollar-sign,
@@ -115,10 +116,14 @@ body {
   letter-spacing: 0.2rem;
 }
 
-.tip-btn:hover {
-  background-color: var(--color-selected);
+.tip-btn:hover:not(:last-child) {
+  background-color: var(--color-logo-background);
   color: var(--color-btns);
 }
+/* 
+.tip-btn:active {
+  background-color: var(--color-logo-background);
+} */
 
 .btn-container > .tip-btn {
   flex: 40%;
@@ -220,6 +225,10 @@ body {
   color: var(--color-btns);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: var(--color-logo-background);
 }
 
 @media only screen and (min-width: 480px) {
