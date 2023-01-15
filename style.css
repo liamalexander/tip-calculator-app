@@ -228,6 +228,10 @@ body {
   background-color: var(--color-logo-background);
 }
 
+.target-btn {
+  background-color: blue;
+}
+
 @media only screen and (min-width: 480px) {
   body {
     background-color: var(--color-logo-background);
