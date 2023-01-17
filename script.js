@@ -13,9 +13,9 @@ let selectedTip;
 let finalBill;
 let totalPeople;
 
-//  GET BUTTONS TO STAY COLOUR WHEN CLICKED, WORK OUT THE CUSTOM INPUT,
-//  WORK OUT LINE 24 SO IT ONLY WORKS ON RELEVANT ELEMENTS
-//  CHANE TYPE OF TIP, BILL AND PEOPLE TO NUMBER (NOT STRING)
+//  WORK OUT THE CUSTOM INPUT & REMOVE COLOR FROM OTHER BTNS IF CUSTOM IS CLICKED
+//  WORK OUT LINE 23 SO IT ONLY WORKS ON RELEVANT ELEMENTS
+//  GET RESET BTN WORKING
 
 const eventTypes = ["click", "keyup"];
 
@@ -25,22 +25,39 @@ eventTypes.forEach(type => {
     console.log(e.target.className);
 
     if (type == "click" && e.target.className == "tip-btn") {
-      selectedTip = e.target.dataset.tipValue;
+      selectedTip = +e.target.dataset.tipValue;
       console.log(selectedTip, typeof(selectedTip));
+      tipBtns.forEach(btn => {
+        +btn.dataset.tipValue === selectedTip ? btn.classList.add("target-btn") 
+        : btn.classList.remove("target-btn"); 
+      })
     };
 
     if (type == "keyup" && e.target.className == "bill-input") {
-      finalBill = e.target.value;
-      console.log(finalBill);
+      finalBill = +e.target.value;
+      console.log(finalBill, typeof(finalBill));
     };
 
     if (type == "keyup" && e.target.className == "people-input") {
-      totalPeople = e.target.value;
-      console.log(totalPeople);
+      totalPeople = +e.target.value;
+      console.log(totalPeople, typeof(totalPeople));
     };
 
     if (selectedTip && totalPeople && finalBill) {
-      +finalBill / 100;
+      let liveTip = (finalBill / 100) * selectedTip;
+      // console.log(liveTip);
+      let liveTotalBill = finalBill + liveTip;
+      // console.log(liveTotalBill);
+      let tipTotalPerPerson = liveTip / totalPeople;
+      // console.log(tipTotalPerPerson);
+      let billTotalPerPerson = liveTotalBill / totalPeople;
+      // console.log(billTotalPerPerson);
+      totalTip.textContent = `$ ${tipTotalPerPerson.toFixed(2)}`;
+      totalPay.textContent = `$ ${billTotalPerPerson.toFixed(2)}`;
+    }
+
+    if (type == "click" && e.target.className == "reset-btn") {
+      //  EMPTY INPUT FIELDS AND TIP-BTNS REMOVE TARGET CLASS AND EMPTY TOTALTIP AND TOTALPAY
     }
   });
 });
