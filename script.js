@@ -14,13 +14,19 @@ let finalBill;
 let totalPeople;
 
 //  WORK OUT THE CUSTOM INPUT & REMOVE COLOR FROM OTHER BTNS IF CUSTOM IS CLICKED
-//  WORK OUT LINE 23 SO IT ONLY WORKS ON RELEVANT ELEMENTS
-//  GET RESET BTN WORKING
+//  WORK OUT LINE 30 SO IT ONLY WORKS ON RELEVANT ELEMENTS
+//  SORT OUT WHY RESET BTN SHOWS TOTALS AFTER CLEARING ON NEXT CLICK
 
 const eventTypes = ["click", "keyup"];
 
 eventTypes.forEach(type => {
   document.addEventListener(type, function (e) {
+    let liveTip;
+    let liveTotalBill;
+    let tipTotalPerPerson;
+    let billTotalPerPerson;
+
+
     // if (e.target.className !== "people-input" || "bill-input" || "tip-btn") return;
     console.log(e.target.className);
 
@@ -44,20 +50,35 @@ eventTypes.forEach(type => {
     };
 
     if (selectedTip && totalPeople && finalBill) {
-      let liveTip = (finalBill / 100) * selectedTip;
+      liveTip = (finalBill / 100) * selectedTip;
       // console.log(liveTip);
-      let liveTotalBill = finalBill + liveTip;
+      liveTotalBill = finalBill + liveTip;
       // console.log(liveTotalBill);
-      let tipTotalPerPerson = liveTip / totalPeople;
+      tipTotalPerPerson = liveTip / totalPeople;
       // console.log(tipTotalPerPerson);
-      let billTotalPerPerson = liveTotalBill / totalPeople;
+      billTotalPerPerson = liveTotalBill / totalPeople;
       // console.log(billTotalPerPerson);
       totalTip.textContent = `$ ${tipTotalPerPerson.toFixed(2)}`;
       totalPay.textContent = `$ ${billTotalPerPerson.toFixed(2)}`;
+      // tipTotalPerPerson = 0;
+      // billTotalPerPerson = 0;
+      //  ABOVE TO TRY CLEAR THE TOTALS AFTER RESET AND NEXT CLICK
     }
 
     if (type == "click" && e.target.className == "reset-btn") {
-      //  EMPTY INPUT FIELDS AND TIP-BTNS REMOVE TARGET CLASS AND EMPTY TOTALTIP AND TOTALPAY
+      billInput.value = "";
+      peopleInput.value = "";
+      totalTip.textContent = "$";
+      totalPay.textContent = "$";
+
+      liveTip = 0;
+      liveTotalBill = 0;
+      tipTotalPerPerson = 0;
+      billTotalPerPerson = 0;
+
+      tipBtns.forEach(btn => {
+        btn.classList.remove("target-btn");
+      });
     }
   });
 });
