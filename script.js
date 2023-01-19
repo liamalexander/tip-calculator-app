@@ -13,9 +13,7 @@ let selectedTip;
 let finalBill;
 let totalPeople;
 
-//  WORK OUT THE CUSTOM INPUT & REMOVE COLOR FROM OTHER BTNS IF CUSTOM IS CLICKED
-//  WORK OUT LINE 30 SO IT ONLY WORKS ON RELEVANT ELEMENTS
-//  SORT OUT WHY RESET BTN SHOWS TOTALS AFTER CLEARING ON NEXT CLICK
+//  WORK OUT LINE 27 SO IT ONLY WORKS ON RELEVANT ELEMENTS
 
 const eventTypes = ["click", "keyup"];
 
@@ -25,7 +23,6 @@ eventTypes.forEach(type => {
     let liveTotalBill;
     let tipTotalPerPerson;
     let billTotalPerPerson;
-
 
     // if (e.target.className !== "people-input" || "bill-input" || "tip-btn") return;
     console.log(e.target.className);
@@ -49,6 +46,17 @@ eventTypes.forEach(type => {
       console.log(totalPeople, typeof(totalPeople));
     };
 
+    if (type == "keyup" && e.target.id == "custom") {
+      selectedTip = +e.target.value;
+      console.log(selectedTip, typeof(selectedTip));
+      customTipInput.classList.add("target-btn");
+
+      tipBtns.forEach(btn => {
+        if (btn.id !== "custom")
+        btn.classList.remove("target-btn");
+      })
+    };
+
     if (selectedTip && totalPeople && finalBill) {
       liveTip = (finalBill / 100) * selectedTip;
       // console.log(liveTip);
@@ -68,9 +76,14 @@ eventTypes.forEach(type => {
     if (type == "click" && e.target.className == "reset-btn") {
       billInput.value = "";
       peopleInput.value = "";
+      customTipInput.value = "";
       totalTip.textContent = "$";
       totalPay.textContent = "$";
 
+      
+      selectedTip = 0;
+      totalPeople = 0;
+      finalBill = 0;
       liveTip = 0;
       liveTotalBill = 0;
       tipTotalPerPerson = 0;
