@@ -13,8 +13,6 @@ let selectedTip;
 let finalBill;
 let totalPeople;
 
-//  WORK OUT LINE 27 SO IT ONLY WORKS ON RELEVANT ELEMENTS
-
 const eventTypes = ["click", "keyup"];
 
 eventTypes.forEach(type => {
@@ -24,7 +22,7 @@ eventTypes.forEach(type => {
     let tipTotalPerPerson;
     let billTotalPerPerson;
 
-    // if (e.target.className !== "people-input" || "bill-input" || "tip-btn") return;
+    // if (type && e.target.className !== "people-input" || "bill-input" || "tip-btn") return;
 
     if (type == "click" && e.target.className == "tip-btn") {
       selectedTip = +e.target.dataset.tipValue;
