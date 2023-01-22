@@ -25,7 +25,8 @@
         <div class="bill-container">
           <h1 class="bill-title">Bill</h1>
           <span class="dollar-sign"><img src="/img/icon-dollar.svg" alt="currency symbol" class="dollar-img"></span>
-          <input type="text" class="bill-input">
+          <input type="text" class="bill-input" id="bill-input">
+          <label for="bill-input">Bill amount</label>
         </div>
 
         <div class="tip-container">
@@ -43,28 +44,29 @@
         <div class="people-container">
           <h1 class="people-title">Number of People</h1>
           <span class="person-sign"><img src="/img/icon-person.svg" alt="person symbol" class="person-img"></span>
-          <input type="text" class="people-input">
+          <input type="text" class="people-input" id="people-input">
+          <label for="people-input">People</label>
         </div>
       </div>
 
       <div class="payment-container">
         <div class="payment-text-tip">
-          <span class="big-payment-title">
+          <div class="big-payment-title">
             <h1 class="big-tip-amount">Tip Amount</h1>
             <h2 class="small-tip-amount">/ person</h2>
-          </span>
-          <span class="amount-to-pay">
+          </div>
+          <div class="amount-to-pay">
             <p class="tip-total-to-pay total-tip">$</p>
-          </span>
+          </div>
         </div>
         <div class="payment-text-tip">
-          <span class="big-payment-title">
+          <div class="big-payment-title">
             <h1 class="big-tip-amount">Total</h1>
             <h2 class="small-tip-amount">/ person</h2>
-          </span>
-          <span class="amount-to-pay">
+          </div>
+          <div class="amount-to-pay">
             <p class="tip-total-to-pay total-pay">$</p>
-          </span>
+          </div>
         </div>
         <div class="reset-btn-container">
           <button type="reset" class="reset-btn">Reset</button>
