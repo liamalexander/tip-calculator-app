@@ -151,12 +151,6 @@ body {
  color: var(--color-text);
 }
 
-/*  REMOVE THIS IF STILL LABEL ERROR*/
-
-label {
-  display: none;
-}
-
 .payment-container {
   width: 82%;
   margin: 2rem auto;
